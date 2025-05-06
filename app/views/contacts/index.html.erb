@@ -1,0 +1,13 @@
+<h1>CONTACTS</h1>
+
+<% contacts = Contact.all %>
+
+<ul>
+<% for contact in contacts %>
+  <% company = Company.find_by("id" => contact["company_id"])%>
+  <li><%= contact["first_name"] %> <%= contact["last_name"] %>,  <%= company["name"] %>
+  </li>
+<% end %>
+</ul>
+
+<p><a href = "/contacts">Reload</a><p>
